@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Posts</title>
+    <link rel="stylesheet" href="myPosts.css">
+</head>
+<body>
+    <%- include("partials/navbar.ejs")%>
+    <div class="pst-container">
+
+        <% mypostList.forEach(element => {%>
+            <%if(element){%>
+            <div class="post">
+                <p class="innter-pst">
+                    <%= element%>
+                </p>
+            </div>
+            <%}%>
+        <%}); %>
+    </div>
+    <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

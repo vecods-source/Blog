@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>©FakeBook</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <%- include("partials/navbar.ejs") %>
+    <h1 class="title">FakE BoOk</h1>
+    <h3 class="underTitle">"Your gateway to seamless blog control."</h3>
+    <h5 class="sroll"><a class="sendTo" href="/posts">Press here to explore your posts.</a></h5>
+
+
+    <%- include("partials/footer.ejs") %>
+
+    <!-- <h5>
+        <a class="sroll" href="#" onclick="makePostRequest()">Go to Posts</a>
+    </h5> -->
+      
+    <!-- <script>
+        function makePostRequest() {
+            fetch('/posts', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (response.ok) {
+                window.location.href = '/posts'; 
+                } else {
+                alert('Error submitting the form');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script> -->
+      
+</body>
+</html>

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap');
+
+:root{
+    --fm : "Antonio", sans-serif;
+}
+
+body{
+    margin: 0;
+    text-align: center;
+}
+
+.title{
+    font-family: var(--fm);
+    font-weight: 700;
+    font-size: 160px;
+    margin-bottom: 0;
+    color: #105aac;
+}
+.underTitle{
+    font-family: var(--fm);
+    font-size: 30px;
+    color: #105aac;
+    opacity: 0.8;
+}
+.sroll{
+    margin-top: 293px;
+    opacity: 0.6;
+    font-family: var(--fm);
+    font-size: 20px;
+    opacity: .6;
+}
+.sendTo {
+    color: #2b65a7;
+    text-decoration: none;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Post</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="posts.css">
+</head>
+<body>
+    <%- include("partials/navbar.ejs")%>
+    <h1>What’s on YoUr MIND</h1>
+    <form action="/posts" method="post" class="containerForm">
+        <textarea name="userinput" id="ig-post" placeholder="......" oninput="checkWordLimit()" maxlength="500"></textarea>
+        <p id="wordCount">Words: 0/200</p>
+        <button type="submit" class="add-poster-btn"><p class="innerBtn">POST</p></button>
+    </form>
+    <%- include("partials/footer.ejs") %>
+    <script>
+        const maxWords = 200;
+        let flag = false;
+        let textValue;
+        let inputtedCount;
+        let oldTextValue;
+
+
+        function checkWordLimit() {
+            let tem1 = document.querySelector("#ig-post");
+            let tem2 = document.querySelector("#wordCount");
+
+            if(!flag){
+                textValue = tem1.value.split(/(\s+|\n)/);
+                inputtedCount = WordCounter(textValue);
+
+                tem2.innerText = `Words: ${inputtedCount-1}/${maxWords}`;
+                oldTextValue = textValue;
+            }
+
+            if (inputtedCount >= maxWords+1){
+                inputtedCount = WordCounter(tem1.value.split((/(\s+|\n)/)));
+                if(inputtedCount < maxWords+1){
+                    tem1.classList.remove("max-limit"); 
+                    flag = false;
+                    return;
+                }
+                tem1.classList.add("shake");
+                tem1.classList.add("max-limit"); 
+                tem2.classList.add("shake");
+
+                setTimeout(() => {
+                    tem1.classList.remove("shake");
+                    tem2.classList.remove("shake");
+                }, 500);
+                tem1.value = oldTextValue.slice(0,-2).join("");
+                flag = true;
+            }
+        }
+        function WordCounter(stringList)
+        {
+            inputtedCount = 0;
+            stringList.forEach(element=>{
+                if (element != ' ' && element != '\n'){
+                        inputtedCount++;
+                }
+            });
+            return inputtedCount;
+        }
+    </script>
+</body>
+</html>
